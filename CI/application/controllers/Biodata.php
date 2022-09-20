@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Welcome extends CI_Controller {
+class Biodata extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -20,12 +20,15 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
-
-		$this->load->view('contoh1');
+		$this->load->view('v_form/biodata');
 	}
 	
-	public function parsing(){
-		$data['kampus'] = "Bina Sarana Informatika";
-		$this->load->view('contoh1', $data);
+	public function cetak(){
+		$data = [
+			'nim' => $this->input->post('nim'),
+			'nama' => $this->input->post('nama'),
+			'prodi' => $this->input->post('prodi')
+		];
+		$this->load->view('v_form/cetak', $data);
 	}
 }
