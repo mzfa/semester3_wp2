@@ -20,12 +20,23 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
+		$data['meta'] = ['title' => "Home Beritangoding"];
+		$this->load->view('home',$data);
+	}
 
-		$this->load->view('contoh1');
+	public function about()
+	{
+		$data['meta'] = ['title' => "About Beritangoding"];
+		$this->load->view('about',$data);
+	}
+
+	public function contact()
+	{
+		$data['meta'] = ['title' => "Contact Beritangoding"];
+		if($this->input->method() == 'post'){
+			print_r($this->input->method());
+		}
+		$this->load->view('contact',$data);
 	}
 	
-	public function parsing(){
-		$data['kampus'] = "Bina Sarana Informatika";
-		$this->load->view('contoh1', $data);
-	}
 }
